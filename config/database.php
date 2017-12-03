@@ -39,6 +39,52 @@ return [
             'prefix' => '',
         ],
 
+        'sqlite_testing' => [
+            'driver' => 'sqlite',
+            'database' => env('DB_DATABASE_TESTING', database_path('testing.database.sqlite')),
+            'prefix' => '',
+        ],
+
+        'migration_ro' => [
+            'driver' => 'mysql',
+            'read' => [
+                'host' => env('TUNNELER_LOCAL_ADDRESS', '127.0.0.1'),
+            ],
+            'write' => [
+                'host' => '9.9.9.9',
+            ],
+            'port' => env('TUNNELER_LOCAL_PORT', '3306'),
+            'database' => env('MIGRATION_RO_DB_DATABASE', 'ebre_escool'),
+            'username' => env('MIGRATION_RO_DB_USERNAME', 'sergi'),
+            'password' => env('MIGRATION_RO_DB_PASSWORD', ''),
+            'unix_socket' => env('MIGRATION_RO_DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'ebre_escool' => [
+            'driver' => 'mysql',
+            'read' => [
+                'host' => env('TUNNELER_LOCAL_ADDRESS', '127.0.0.1'),
+            ],
+            'write' => [
+                'host' => env('TUNNELER_LOCAL_ADDRESS', '127.0.0.1'),
+            ],
+            'port' => env('TUNNELER_LOCAL_PORT', '3306'),
+            'database' => env('MIGRATION_RO_DB_DATABASE', 'ebre_escool'),
+            'username' => env('MIGRATION_RO_DB_USERNAME', 'sergi'),
+            'password' => env('MIGRATION_RO_DB_PASSWORD', ''),
+            'unix_socket' => env('MIGRATION_RO_DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -65,17 +111,6 @@ return [
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ],
-
-        'sqlsrv' => [
-            'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
         ],
 
     ],

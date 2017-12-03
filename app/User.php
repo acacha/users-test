@@ -2,12 +2,17 @@
 
 namespace App;
 
+use Acacha\Users\Traits\ExposePermissions;
+use Acacha\UsersEbreEscoolMigration\Traits\HasUserMigrations;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRoles, HasApiTokens, ExposePermissions, RevisionableTrait,HasUserMigrations;
 
     /**
      * The attributes that are mass assignable.
